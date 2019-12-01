@@ -62,7 +62,7 @@
 
                         <!-- Do prices CSS -->
                         <div id="prices">
-                            <p><strong><span id="netprice">$<span id="netpriceval">14.99</span></span></strong><sub id="baseprice">$<span id="basepriceval">17.99</span></sub><sub id="discrate"><span id="discrateval"> 25</span>% OFF</sub></p>
+                            <p><strong><span id="netprice">$<span id="netpriceval">-.--</span></span></strong><sub id="baseprice">$<span id="basepriceval">-.--</span></sub><sub id="discrate"><span id="discrateval">-</span>% OFF</sub></p>
                         </div>
                         <h5 id="special">Online Exclusive</h5>
                         <div id="colorsdiv">
@@ -89,7 +89,7 @@
                                 <p>Your Custom Fit</p>
                                 <div id="checkout-stuff">
                                     <div id="quantity-div" class="d-inline btn">0</div>
-                                    <button type="button" id="add2cartbutton" class="btn" data-toggle="modal" data-target="#add2cartModal">Add to cart</button>
+                                    <button type="button" id="add2cartbutton" class="btn" data-toggle="modal" data-target="#add2cartModal">Add to cart &#128722;</button>
                                 </div>
                             </div>
                         </div>
@@ -156,22 +156,21 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="checkoutModalLongTitle">Total Price:<span id="totalcartPriceSpan"> <strong>$<span id="totalcartPrice">14.99</span></strong></span></h5>
+                            <h5 class="modal-title" id="checkoutModalLongTitle">Total Price:<span id="totalcartPriceSpan"> <strong>$<span id="totalcartPrice">-.--</span></strong></span></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="hick-exit-modal">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body" id="checkoutModalBody">
-                            <table id="checkoutTable" class= table>
+                            <table id="checkoutTable" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">Number</th>
                                         <th scope ="col"></th>
                                         <th scope="col">Item Name</th>
-                                        <th scope="col">Total</th>
+                                        <th scope="col">Subtotal</th>
                                     </tr>
                                 </thead>
-                                
                                 <tbody id="checkoutTableBody">
                                     <!-- Generated via Javascript --> 
                                 </tbody>
@@ -184,8 +183,8 @@
                             <button type="button" id="closecheckoutModalButton" data-dismiss="modal" class="btn hick-modal-btn-cancel">
                                 Close
                             </button>
-                            <button type="button" id="clearcartButton" data-dismiss="modal" class="btn">Clear Cart</button>
-                            <button type="submit" id="paynowButton" class="btn" onclick="window.open(https://www.paypal.com/za/signin)" data-dismiss="modal">Pay Now</button>
+                            <button type="button" id="clearcartButton" data-dismiss="modal" class="btn">&#128465; Clear Cart</button>
+                            <button type="submit" id="paynowButton" class="btn" data-dismiss="modal"> <img src="img/paypal+icon-1320186685429967926.png" id="paypalLogo">Pay Now</button>
                         </div>
                     </div>
                 </div>

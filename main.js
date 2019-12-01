@@ -49,7 +49,6 @@ var colorCart = document.getElementById("selected-items");
 
 var checkoutBody = document.getElementById("checkoutTableBody");
 
-var checkoutTable = document.getElementById("checkoutTable");
 
 var currentIndex = -1;
 
@@ -99,12 +98,16 @@ var checkSpecToCart = function(){
 var makeCartModal = function(){
     checkoutBody.innerHTML = "";
     for(let i = 0; i < cart.items.length; i++){
-        var row = checkoutTable.insertRow(i);
+        var row = checkoutBody.insertRow(i);
         var numCell = row.insertCell(0);
         var colCell = row.insertCell(1);
         var nameCell = row.insertCell(2);
         var totalCell = row.insertCell(3);
-        
+        numCell.innerHTML = cart.items[i].numToBuy + "x";
+        colCell.innerHTML = '<div class="cartcolorblock d-inline" id="carttableColorItem' + i + '"></div>';
+        nameCell.innerHTML = cart.items[i].item.colorName;
+        totalCell.innerHTML = '$' + cart.items[i].getTotal().toFixed(2);
+        document.getElementById('carttableColorItem' + i).style.backgroundColor = convertToColor(cart.items[i].item.id);
         /*
         let tableEntryCode = '<th scope="row"><span id="CartCountItem1">' + cart.items[i].numToBuy + 'x</span></th>' +
         '<td><div class="cartcolorblock d-inline" id="carttableColorItem' + i + '"></div></td>'+
@@ -115,7 +118,7 @@ var makeCartModal = function(){
         checkoutBody.appendChild(tableEntry);*/
         
     }
-    alert(cart.getTotal());
+    document.getElementById("totalcartPrice").innerHTML = cart.getTotal().toFixed(2);
 }
 
 var makeCartItemHTML = function(cartItem){
@@ -165,16 +168,15 @@ var decrementBuyCounter = function(){
 }
 
 /** Cart Buttons **/
-var checkOut = function(elementID){
-    
+var checkOut = function(){
+    window.open("https://www.youtube.com/watch?v=x4lAk-kZrQ4",'popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
 }
 
 var clearCart = function(){
-    
-    
-    
-    
+    colorCart.innerHTML = "<br/>No Items in cart<br/>";
+    cart.clear();
     document.getElementById("checkoutbutton").style.display = "none";
+    document.getElementById("quantity-div").innerHTML = "0";
 }
 
 var createAddToCartOnClickEvents = function(){
@@ -234,10 +236,9 @@ var resetSelection = function(a){
 var setcolor = function(a){
     if(a < 0){
         document.getElementById("selected-color").innerHTML = "-";
-        document.getElementById("netpriceval").innerHTML = "-";
-        document.getElementById("netpriceval").style.display = "hidden";
-        document.getElementById("basepriceval").innerHTML = "-";
-        document.getElementById("discrateval").innerHTML = "-";
+        document.getElementById("netpriceval").innerHTML = "-.--";
+        document.getElementById("basepriceval").innerHTML = "-.--";
+        document.getElementById("discrateval").innerHTML = "-.--";
         
     }
     else{
@@ -305,6 +306,12 @@ var createButtonOnClickEvents = function(){
     checkoutbutton.addEventListener("click", function(){
         makeCartModal();
     });
+    paynowButton.addEventListener("click", function(){
+        checkOut();
+    });
+    clearcartButton.addEventListener("click", function(){
+        clearCart();
+    })
 }
 
 var initializeColorSelector = function(){

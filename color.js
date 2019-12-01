@@ -81,6 +81,6 @@ class Cart {
     }
     
     clear(){
-        this.cart.clear();
+        this.items = [];
     }
 }
